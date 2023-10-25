@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View, Button, TextInput, ImageBackground, TouchableOpacity } from "react-native";
 import { useState } from 'react';
+
 // assign image to image varaible
 const image = require('../assets/BackgroundImage.png')
+
 const Start = ({ navigation }) => {
     // creating the name state
     const [name, setName] = useState('');
@@ -9,6 +11,7 @@ const Start = ({ navigation }) => {
     const [bgColor, setBgColor] = useState('white');
     // colors array to display different colors list
     const colors = ['#000000', '#696969', '#778899', '#D3D3D3'];
+
     return (
         //  to set the background image of app
         <ImageBackground source={image} resizeMode="cover" style={styles.image}>
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingBottom: 50,
+        paddingBottom: 25,
     },
     icon: {
         width: 50,
@@ -74,7 +77,7 @@ const styles = StyleSheet.create({
     colorListTitle: {
         color: 'gray',
         fontSize: 16,
-        fontWeight: '300'
+        fontWeight: '300',
     },
     selected: {
         borderColor: 'gray',

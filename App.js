@@ -9,7 +9,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // create the navigator
 const Stack = createNativeStackNavigator();
-
+// The app's main Chat component that renders the chat UI
 const App = () => {
   return (
     <NavigationContainer>
