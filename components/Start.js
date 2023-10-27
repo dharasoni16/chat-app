@@ -34,8 +34,8 @@ const Start = ({ navigation }) => {
             {Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null}
         </ImageBackground>
     );
-
 }
+
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
