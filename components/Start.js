@@ -1,16 +1,30 @@
-import { StyleSheet, Text, View, Button, TextInput, ImageBackground, TouchableOpacity, KeyboardAvoidingView, Platform } from "react-native";
+import { StyleSheet, Text, View, Button, TextInput, ImageBackground, TouchableOpacity, KeyboardAvoidingView, Platform, Alert } from "react-native";
 import { useState } from 'react';
+import { getAuth, signInAnonymously } from "firebase/auth";
 
 // assign image to image varaible
 const image = require('../assets/BackgroundImage.png')
 
 const Start = ({ navigation }) => {
+
     // creating the name state
     const [name, setName] = useState('');
     // creating background color state
     const [bgColor, setBgColor] = useState('white');
     // colors array to display different colors list
     const colors = ['#2B2E2C', '#696969', '#778899', '#D3D3D3'];
+
+    // initializing authentication handler
+    const auth = getAuth();
+
+    const signInUser = () => {
+        signInAnonymously(auth).then(result => {
+            navigation.navigate("Chat", { userID: result.user.uid, name: name, color: bgColor });
+            Alert.alert("Signed in Successfully!");
+        }).catch((error) => {
+            Alert.alert("Unable to sign in, try later again.");
+        });
+    }
 
     return (
         //  to set the background image of app
@@ -25,7 +39,7 @@ const Start = ({ navigation }) => {
                         <TouchableOpacity key={index} style={[styles.circle, { backgroundColor: color }, bgColor === color && styles.selected]} onPress={() => setBgColor(color)} accessible={true} accessibilityLabel={`Color - ${color}`} accessibilityRole="menuitem"></TouchableOpacity>
                     ))}
                 </View>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Chat', { name: name, color: bgColor })} accessibilityLabel="Start Chatting Button" accessible={true} accessibilityHint="navigates to chat screen" accessibilityRole="button">
+                <TouchableOpacity style={styles.button} onPress={signInUser} accessibilityLabel="Start Chatting Button" accessible={true} accessibilityHint="navigates to chat screen" accessibilityRole="button">
                     <Text style={styles.btnText}>Start Chatting</Text>
                 </TouchableOpacity>
             </View>
