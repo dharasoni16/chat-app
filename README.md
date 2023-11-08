@@ -2,7 +2,7 @@
 
 Chat-app is a app for mobile device made using React Native.These app will provide users with a chat interface and options to share images and their location.
 
-# Key Features
+## Key Features
 
 - A page where users can enter their name and choose a background color for the chat screen
   before joining the chat.
@@ -14,7 +14,7 @@ Chat-app is a app for mobile device made using React Native.These app will provi
 
 * Data gets stored online and offline.
 
-# Tech-Stack
+## Tech-Stack
 
 - React Native (JavaScript)
 
@@ -34,9 +34,9 @@ Chat-app is a app for mobile device made using React Native.These app will provi
 
 - Expo ImagePicker & MediaLibrary for Communication Features
 
-# Installation
+## Installation
 
-## To run the 'Chat App' on your computer, follow these steps:
+### To run the 'Chat App' on your computer, follow these steps:
 
 1. Make sure you have Node.js installed. You can download and install it from the official [Node.js website](https://nodejs.org/en "Node.js website").
 2. Clone this repository to your computer by using the command: git clone <https://github.com/dharasoni16/chat-app>
@@ -53,7 +53,7 @@ Chat-app is a app for mobile device made using React Native.These app will provi
 
 That's it! You have successfully installed the 'Chat App' on your computer.
 
-# User Stories
+## User Stories
 
 - As a new user, I want to be able to easily enter a chat room so I can quickly start talking to my
   friends and family.
