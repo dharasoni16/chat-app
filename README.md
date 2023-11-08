@@ -40,8 +40,8 @@ Chat-app is a app for mobile device made using React Native.These app will provi
 
 1. Make sure you have Node.js installed. You can download and install it from the official [Node.js website](https://nodejs.org/en "Node.js website").
 2. Clone this repository to your computer by using the command: git clone <https://github.com/dharasoni16/chat-app>
-3. Go to the project directory by typing: cd chat-app
-4. Install the project dependencies by running: npm install
+3. Go to the project directory by typing: `cd chat-app`
+4. Install the project dependencies by running: `npm install`
 5. Configure the Firestore database: Create a project in the Firebase Console and enable Firestore as the database.
    Copy the project credentials provided by Firebase.
 6. Start the app by running: npx expo start or npm start
