@@ -40,18 +40,31 @@ Chat-app is a app for mobile device made using React Native.These app will provi
 
 1. Make sure you have Node.js installed. You can download and install it from the official [Node.js website](https://nodejs.org/en "Node.js website").
 2. Clone this repository to your computer by using the command:
-   `git clone <https://github.com/dharasoni16/chat-app>`
+
+- `git clone https://github.com/dharasoni16/chat-app`
+
 3. Go to the project directory by typing:
-   `cd chat-app`
+
+- `cd chat-app`
+
 4. Install the project dependencies by running:
-   `npm install`
+
+- `npm install`
+
 5. Configure the Firestore database: Create a project in the Firebase Console and enable Firestore as the database.
    Copy the project credentials provided by Firebase.
-6. Start the app by running: npx expo start or npm start
-7. This will start the Expo development server and show a QR code and ip address of expo in the terminal.
+
+- Make sure to use your own Firebase config credentials in App.js
+
+6. Start the app by running:
+
+- `npx expo start or npm start`
+
+7. This will start the Expo development server and show a QR code and ip address of expo in the terminal.Select the
+   option according to your prefreance where you want to run your app.For example press `a` to run on android.
 8. Download the Expo Client app on your iOS or Android device from the app store.
 9. Open the Expo Client app make sure you are signedIn into your expo account. if you are it will automatically show your
-   expo projct link in your app, if for any reason your project is not showing up you can scan the QR code displayed in the terminal or you can also enter the ip address displayed in the terminal manually in your app and press connect button.
+   expo project link in your app, if for any reason your project is not showing up you can scan the QR code displayed in the terminal or you can also enter the ip address displayed in the terminal manually in your app and press connect button.
 10. Now you can view and use the 'Chat App' on your device.
 
 That's it! You have successfully installed the 'Chat App' on your computer.
