@@ -4,8 +4,10 @@ import { StyleSheet, View, KeyboardAvoidingView, Platform } from "react-native";
 import { Bubble, GiftedChat, InputToolbar } from 'react-native-gifted-chat';
 import { collection, addDoc, onSnapshot, query, orderBy } from "firebase/firestore";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import CustomActions from './CustomActions';
+import MapView from 'react-native-maps';
 
-const Chat = ({ route, navigation, db, isConnected }) => {
+const Chat = ({ route, navigation, db, storage, isConnected }) => {
     const { userID, name, color } = route.params;
 
     // messages state initialization
@@ -79,12 +81,39 @@ const Chat = ({ route, navigation, db, isConnected }) => {
         else return null;
     }
 
+    // function responsible for creating circle button, for adding actions like take photo add image and gelocation in message
+    const renderCustomActions = (props) => {
+        return <CustomActions storage={storage} userID={userID} {...props} />;
+    };
+
+    // function checks if the current message contains location data , if yes it will return Mapview
+    const renderCustomView = (props) => {
+        const { currentMessage } = props;
+        if (currentMessage.location) {
+            return <MapView style={{
+                width: 150,
+                height: 100,
+                borderRadius: 13,
+                margin: 3
+            }}
+                region={{
+                    latitude: currentMessage.location.latitude,
+                    longitude: currentMessage.location.longitude,
+                    latitudeDelta: 0.0922,
+                    longitudeDelta: 0.0421,
+                }}
+            />
+        }
+        return null;
+    }
     return (
         <View style={[styles.container, { backgroundColor: color }]}>
             <GiftedChat messages={messages}
                 renderBubble={renderBubble}
                 renderInputToolbar={renderInputToolbar}
                 onSend={messages => onSend(messages)}
+                renderActions={renderCustomActions}
+                renderCustomView={renderCustomView}
                 user={{ _id: userID, name: name }} style={{ backgroundColor: color }} />
             {/* To prevent keyboard from covering bottom part of the screen */}
             {Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null}
